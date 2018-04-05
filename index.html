@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="blackorwhite.css">
+
+  <script src="jquery-1.4.2.min.js"></script>
+  <script src="browser.js"></script>
+  <script src="blackorwhite.js"></script>
+
+  <title>brain.js demo: Train a neural network to recognize color name</title>
+</head>
+
+<body>
+  <div id="desc">brain.js demo - train a neural network to recognize color name</div>
+
+  <div id="container">
+    <div class="section" id="training-box">
+      <div class="section-header">
+        "What is this color"?
+      </div>
+      <div id="swatches">
+        <div class="swatch-box">
+          <div id="black-swatch" class="swatch">
+            <div class="swatch-text"></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p>
+          <button onclick="trainer.pickSwatch('black');">black</button>
+          <button onclick="trainer.pickSwatch('grey');">grey</button>
+          <button onclick="trainer.pickSwatch('white');">white</button>
+          <button onclick="trainer.pickSwatch('red');">red</button>
+          <button onclick="trainer.pickSwatch('orange');">orange</button>
+        </p>
+        <p>
+          <button onclick="trainer.pickSwatch('yellow');">yellow</button>
+          <button onclick="trainer.pickSwatch('green');">green</button>
+          <button onclick="trainer.pickSwatch('blue');">blue</button>
+          <button onclick="trainer.pickSwatch('purple');">purple</button>
+          <button onclick="trainer.pickSwatch('pink');">pink</button>
+          <button onclick="trainer.pickSwatch('brown');">brown</button>
+        </p>
+      </div>
+      <div id="training-buttons">
+        <span class="pass-button button" onclick="trainer.changeColor();" title="skip">&rarr;</span>
+      </div>
+      <div id="test-box">
+        <div id="test-button" onclick="trainer.trainNetwork();" class="button">train neural network</div>
+        <div id="subtitle"> You can train the network at any point, but the more color selections you give it, the better.
+        </div>
+      </div>
+    </div>
+
+    <div id="progress-box">
+      <div id="training-message">
+        training network...
+      </div>
+      <div id="progress-bar">
+        <div id="progress-completed">
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="testing-box">
+      <div id="swatches">
+        <div id="nn-swatch-box" class="swatch-box">
+          <div id="nn-swatch" class="swatch" onclick="tester.viewCode('nn');" title="view neural network code">
+            <div class="swatch-text"></div>
+          </div>
+          <div id="nn-result">This is .... color.</div>
+          <div class="view-code" onclick="tester.viewCode('nn');">code
+            <div class="view-code-arrow">&#x25B6;</div>
+          </div>
+        </div>
+      </div>
+      <div id="training-buttons">
+        <span class="pass-button button" onclick="tester.testRandom();" title="next color">&rarr;</span>
+      </div>
+    </div>
+    <div id="code-box">
+      <pre id="code"></pre>
+    </div>
+  </div>
+</body>
+
+</html>
